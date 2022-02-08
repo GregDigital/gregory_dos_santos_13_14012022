@@ -1,9 +1,17 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 function App() {
-  <div className="App">
-    <h1>Hello</h1>
-  </div>;
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
 }
 
 export default App;
