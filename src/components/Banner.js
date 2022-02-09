@@ -28,7 +28,7 @@ const Banner = () => {
       </div>
 
       <div className="loggedOut">
-        <Link to="/" className="main-nav-item">
+        <Link to="/signin" className="main-nav-item">
           <i className="fa fa-user-circle"></i>
           <p>Sign In</p>
         </Link>
