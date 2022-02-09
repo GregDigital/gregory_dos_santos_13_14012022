@@ -1,0 +1,15 @@
+.img-error {
+  background-image: url("/img/bank-tree.jpeg");
+  height: 1100px;
+}
+
+.error {
+  font-size: 6em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em;
+  background-color: white;
+  opacity: 0.5;
+}
