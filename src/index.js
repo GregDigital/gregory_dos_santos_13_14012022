@@ -2,11 +2,30 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.scss";
 import App from "./App";
-//import { Provider } from "react-redux";
+
+//redux
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers/index";
+//redux-persist
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+const persistore = persistStore(store); // redux-persist
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <PersistGate persistor={persistore}>
+        <App />
+      </PersistGate>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );
