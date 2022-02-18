@@ -1,5 +1,6 @@
 import React from "react";
 import Account from "../components/Account";
+import EditProfil from "../components/EditProfil";
 import { isEmpty } from "../components/Utils";
 import { ACCOUNTS_USERS } from "../services/userAccounts";
 
@@ -13,6 +14,7 @@ const User = () => {
         </h1>
         <button className="edit-button">Edit Name</button>
       </div>
+      <EditProfil />
       <h2 className="sr-only">Accounts</h2>
 
       {!isEmpty(ACCOUNTS_USERS) &&
