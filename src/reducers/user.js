@@ -21,7 +21,6 @@ const user = (state = initialState, action) => {
         token: action.payload.token,
       };
     case LOGOUT:
-      localStorage.clear();
       return {
         initialState,
       };
