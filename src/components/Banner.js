@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 //import { useSelector, useDispatch } from "react-redux";
 import argentBantLogo from "../img/argentBankLogo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutProfil } from "../actions/log";
+import { logoutProfil, userDetails } from "../actions/log";
 import User from "../pages/User";
 import { isEmpty } from "./Utils";
 //import { LOGOUT } from 'constant/actions';
@@ -17,6 +17,10 @@ const Banner = () => {
     event.preventDefault();
     dispatch(logoutProfil());
   };
+
+  useEffect(() => {
+    dispatch(userDetails());
+  }, [dispatch]);
 
   return (
     <nav className="main-nav">
@@ -39,7 +43,7 @@ const Banner = () => {
         <div className="loggedOut">
           <div className="user-loggedIn">
             <i className="fa fa-user-circle fa-1x"></i>
-            <p> </p>
+            <p>{user.firstName}</p>
           </div>
           <Link className="main-nav-item" onClick={signOut} to="/">
             <i className="fa fa-sign-out fa-1x"></i>

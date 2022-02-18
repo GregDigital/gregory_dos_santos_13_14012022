@@ -21,14 +21,10 @@ export const authentification = (email, password) => {
   };
 };
 
-/** logout
- */
 export const logoutProfil = () => ({
   type: LOGOUT,
 });
 
-/** call api for user infos
- */
 export const userDetails = () => {
   return (dispatch) => {
     url
