@@ -43,7 +43,9 @@ const Banner = () => {
         <div className="loggedOut">
           <div className="user-loggedIn">
             <i className="fa fa-user-circle fa-1x"></i>
-            <p>{user.firstName}</p>
+            <Link to="/user" className="main-nav-item">
+              <p>{user.firstName}</p>
+            </Link>
           </div>
           <Link className="main-nav-item" onClick={signOut} to="/">
             <i className="fa fa-sign-out fa-1x"></i>
