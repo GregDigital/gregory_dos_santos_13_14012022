@@ -1,9 +1,4 @@
-import {
-  LOGOUT_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_ERROR,
-  USER_INFO,
-} from "../actions/log";
+import { LOGOUT, LOGIN, ERROR, USERDETAIL } from "../actions/log";
 
 export const initialState = {
   logged: false,
@@ -17,7 +12,7 @@ export const initialState = {
 
 const user = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_SUCCESS:
+    case LOGIN:
       return {
         ...state,
         logged: true,
@@ -25,18 +20,18 @@ const user = (state = initialState, action) => {
         email: action.payload.email,
         token: action.payload.token,
       };
-    case LOGOUT_REQUEST:
+    case LOGOUT:
       localStorage.clear();
       return {
         initialState,
       };
-    case LOGIN_ERROR:
+    case ERROR:
       return {
         ...state,
         error: true,
       };
 
-    case USER_INFO:
+    case USERDETAIL:
       return {
         ...state,
         firstName: action.payload.firstName,

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 //import { useSelector, useDispatch } from "react-redux";
 import argentBantLogo from "../img/argentBankLogo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../actions/log";
+import { logoutProfil } from "../actions/log";
 import User from "../pages/User";
 import { isEmpty } from "./Utils";
 //import { LOGOUT } from 'constant/actions';
@@ -13,9 +13,9 @@ const Banner = () => {
 
   const dispatch = useDispatch();
 
-  const disconnect = (event) => {
+  const signOut = (event) => {
     event.preventDefault();
-    dispatch(logOut());
+    dispatch(logoutProfil());
   };
 
   return (
@@ -41,7 +41,7 @@ const Banner = () => {
             <i className="fa fa-user-circle fa-1x"></i>
             <p> </p>
           </div>
-          <Link className="main-nav-item" onClick={disconnect} to="/">
+          <Link className="main-nav-item" onClick={signOut} to="/">
             <i className="fa fa-sign-out fa-1x"></i>
             <p>Sign Out</p>
           </Link>

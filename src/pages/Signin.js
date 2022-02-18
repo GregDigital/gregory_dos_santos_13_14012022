@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import { Route } from "react-router-dom";
 import { Navigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { loginRequest } from "../actions/log";
+import { authentification } from "../actions/log";
 
 export default function Signin() {
   const user = useSelector((state) => state.user); //get user state
@@ -18,7 +18,7 @@ export default function Signin() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(loginRequest(email, password));
+    dispatch(authentification(email, password));
   };
 
   if (user.logged) {
