@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Account from "../components/Account";
 import EditProfil from "../components/EditProfil";
+import { userDetails } from "../actions/log";
 import { isEmpty } from "../components/Utils";
 import { ACCOUNTS_USERS } from "../services/userAccounts";
 
 const User = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userDetails());
+  }, [dispatch]);
+
   return (
     <main className="main bg-dark">
-      <div className="header">
-        <h1>
-          Welcome back
-          <br />!
-        </h1>
-        <button className="edit-button">Edit Name</button>
-      </div>
       <EditProfil />
       <h2 className="sr-only">Accounts</h2>
 
