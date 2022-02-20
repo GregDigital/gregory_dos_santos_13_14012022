@@ -1,26 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Account from "../components/Account";
 
-import { userDetails } from "../actions/log";
+import { useSelector, useDispatch } from "react-redux";
+
+import { userDetails, updateProfile } from "../actions/log";
 
 const EditProfil = () => {
   const dataUser = useSelector((state) => state.user);
-  const firstName = dataUser.firstName;
-  const lastName = dataUser.lastName;
+  //placeholder
+  const first = dataUser.firstName;
+  const last = dataUser.lastName;
+  const token = dataUser.token;
+  //value
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const dispatch = useDispatch();
 
   const [isClicked, setIsClicked] = useState(false);
+
+  const handleChangeFirst = (e) => {
+    setFirstName(e.target.value);
+  };
+  const handleChangeLast = (e) => {
+    setLastName(e.target.value);
+  };
+
   const showContent = () => {
     setIsClicked((isClicked) => !isClicked);
+  };
+
+  const update = (e) => {
+    e.preventDefault();
+    dispatch(updateProfile(firstName, lastName));
+    setIsClicked(false);
   };
 
   return (
     <div className="header">
       <h1>
         Welcome back !<br />
-        {firstName} {lastName}
+        {first} {last}
       </h1>
       <button onClick={showContent} className="edit-button">
         Edit Name
@@ -32,22 +51,34 @@ const EditProfil = () => {
               required
               className="editProfilInput"
               type="text"
+              value={firstName}
               id="firstName"
-              placeholder={firstName}
+              onChange={handleChangeFirst}
+              placeholder={first}
             />
             <input
               required
               className="editProfilInput"
               type="text"
+              onChange={handleChangeLast}
+              value={lastName}
               id="lastName"
-              placeholder={lastName}
+              placeholder={last}
             />
           </div>
           <div className="button">
-            <button className="editButton form-button" type="submit">
+            <button
+              className="editButton form-button"
+              type="submit"
+              onClick={update}
+            >
               Save
             </button>
-            <button className="editButton form-button" type="button">
+            <button
+              className="editButton form-button"
+              type="button"
+              onClick={showContent}
+            >
               Cancel
             </button>
           </div>

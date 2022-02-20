@@ -47,3 +47,20 @@ export const userDetails = () => {
       });
   };
 };
+
+export const updateProfile = (firstName, lastName) => {
+  return (dispatch) => {
+    url
+      .put(
+        "user/profile",
+        { firstName, lastName },
+        { headers: { Authorization: `Bearer` + localStorage.getItem("token") } }
+      )
+      .then(() => {
+        dispatch({ type: USERDETAIL, payload: { firstName, lastName } });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
