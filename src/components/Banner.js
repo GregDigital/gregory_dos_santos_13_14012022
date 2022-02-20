@@ -13,8 +13,7 @@ const Banner = () => {
 
   const dispatch = useDispatch();
 
-  const signOut = (event) => {
-    event.preventDefault();
+  const signOut = () => {
     dispatch(logoutProfil());
   };
 
