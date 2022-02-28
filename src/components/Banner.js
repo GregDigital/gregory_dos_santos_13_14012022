@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutProfil, userDetails } from "../actions/log";
 import User from "../pages/User";
 import { isEmpty } from "./Utils";
-//import { LOGOUT } from 'constant/actions';
 
 const Banner = () => {
   const user = useSelector((state) => state.user);
