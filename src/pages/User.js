@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Account from "../components/Account";
 import EditProfil from "../components/EditProfil";
-import { userDetails } from "../actions/log";
+import { userDetails } from "../actions/user.action";
 import { isEmpty } from "../components/Utils";
 import { ACCOUNTS_USERS } from "../services/userAccounts";
 

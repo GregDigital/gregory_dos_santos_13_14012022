@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 //import { useSelector, useDispatch } from "react-redux";
 import argentBantLogo from "../img/argentBankLogo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutProfil, userDetails } from "../actions/log";
+import { logoutProfil, userDetails } from "../actions/user.action";
 import User from "../pages/User";
 import { isEmpty } from "./Utils";
 

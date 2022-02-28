@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import { Route } from "react-router-dom";
 import { Navigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { authentification } from "../actions/log";
+import { authentification } from "../actions/user.action";
 
 export default function Signin() {
   const user = useSelector((state) => state.user); //get user state

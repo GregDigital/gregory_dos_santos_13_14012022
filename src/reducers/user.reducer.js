@@ -1,4 +1,4 @@
-import { LOGOUT, LOGIN, ERROR, USERDETAIL } from "../actions/log";
+import { LOGOUT, LOGIN, ERROR, USERDETAIL } from "../actions/user.action";
 
 export const initialState = {
   logged: false,

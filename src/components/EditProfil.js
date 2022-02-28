@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { userDetails, updateProfile } from "../actions/log";
+import { userDetails, updateProfile } from "../actions/user.action";
 
 const EditProfil = () => {
   const dataUser = useSelector((state) => state.user);
